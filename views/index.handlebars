@@ -1,0 +1,72 @@
+<div class="container">
+
+
+  <div class="jumbotron">
+
+    <h1>Sandwhiches!</h1>
+
+  </div>
+
+  <div class="row">
+    <div class="col-sm">
+      <div class="panel panel-default">
+        <div class="panel-heading" id="leftburger"><strong>
+            <h3>Sandwhiches to eat!</h3>
+          </strong>
+          <p>These sandwhiches are ready to be eaten!</p>
+        </div>
+        <div class="panel-body">
+          <ul>
+            {{#each sandwhiches}}
+            {{#unless devoured}}
+            <span>{{this.id}} - {{this.name}}</span>
+            <button type="button" class="devourburger btn btn-primary" data-id="{{this.id}}"
+              data-newDevoured="{{devour}}">Devour Me!</button>
+            <hr>
+            {{/unless}}
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="col-sm">
+      <div class="panel panel-default">
+        <div class="panel-heading" id="rightburger"><strong>
+            <h3>Sandwhiches already eaten!</h3>
+          </strong>
+          <p>These sandwhiches have already been eaten!</p>
+        </div>
+        <div class="panel-body">
+          <ul>
+            {{#each sandwhiches}}
+            {{#if devoured}}
+            <span>{{this.id}} - {{this.name}}</strong>
+              <button type="button" class="trashburger btn btn-danger" id="trashbutton" data-id="{{this.id}}"
+                data-newDevoured="{{devour}}">Remove Sandwhich</button> 
+              <hr>
+              {{/if}}
+              {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>Add a Sandwhich</h2>
+      <form class="create-form">
+
+        <div class="form-group">
+          <label for="burger">Sandwhich Name:</label>
+          <input type="text" id="burg" name="name">
+        </div>
+
+        <button class="btn-primary" type="submit">Add Sandwhich</button>
+      </form>
+    </div>
+  </div>
+</div>
